@@ -132,6 +132,9 @@
                                 <state key="normal" title="NEXT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNextTapped:" destination="kBP-l8-jnS" eventType="touchUpInside" id="Qfi-SK-mzX"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="NIK-Px-5Is">
                                 <rect key="frame" x="16" y="192.33333333333337" width="343" height="240"/>
@@ -179,7 +182,7 @@
                                 </constraints>
                                 <state key="normal" image="backButton"/>
                                 <connections>
-                                    <segue destination="mZA-5a-Qzj" kind="unwind" unwindAction="unwindFrom7agaWithUndwindSegue:" id="cE2-dR-oyO"/>
+                                    <segue destination="mZA-5a-Qzj" kind="unwind" unwindAction="unwindFromDesirdVCWithUndwindSegue:" id="m3e-1u-nIh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -204,6 +207,9 @@
                         <viewLayoutGuide key="safeArea" id="HTS-pU-NVE"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kfy-Bw-PlU"/>
+                    <connections>
+                        <segue destination="OzI-9Q-YYR" kind="show" identifier="SkillVCSegue" id="dli-Ms-WtU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B48-91-srU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="mZA-5a-Qzj" userLabel="Exit" sceneMemberID="exit"/>
@@ -215,15 +221,14 @@
             <objects>
                 <viewController id="OzI-9Q-YYR" customClass="SkillVC" customModule="Swoosh_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QK7-3Y-Y6T">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beginnerBallerBG" translatesAutoresizingMaskIntoConstraints="NO" id="Als-Yo-2F9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beginnerBallerBG" translatesAutoresizingMaskIntoConstraints="NO" id="Als-Yo-2F9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="vwI-Qq-MpB">
-                                <rect key="frame" x="16" y="66" width="343" height="105.33333333333331"/>
+                                <rect key="frame" x="16" y="21.999999999999993" width="343" height="105.33333333333331"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swooshLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6rI-oQ-D8l">
                                         <rect key="frame" x="112" y="0.0" width="119" height="20"/>
@@ -241,7 +246,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oHx-4e-waD">
-                                <rect key="frame" x="16" y="241.33333333333337" width="343" height="66"/>
+                                <rect key="frame" x="16" y="197.33333333333334" width="343" height="66.000000000000028"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-Sk-n0P" customClass="Custom1BorderButton" customModule="Swoosh_APP" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="66"/>
@@ -268,7 +273,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gxk-CL-Ex9" customClass="Custom1BorderButton" customModule="Swoosh_APP" customModuleProvider="target">
-                                <rect key="frame" x="16" y="653" width="343" height="66"/>
+                                <rect key="frame" x="16" y="599" width="343" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="fTU-VN-ItE"/>
@@ -278,23 +283,44 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVx-mj-2E8">
+                                <rect key="frame" x="16" y="10" width="29" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="90i-Ye-jOX"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="29" id="JXw-Wd-djq"/>
+                                    <constraint firstAttribute="width" constant="29" id="PVt-63-fHl"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="nFt-6L-2DN"/>
+                                </constraints>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <segue destination="RfO-CE-MbO" kind="unwind" unwindAction="unwindFromSkillVCSegueWithUnwindSegue:" id="atm-A4-tqn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="oHx-4e-waD" secondAttribute="trailing" id="17z-LP-fVI"/>
+                            <constraint firstItem="hVx-mj-2E8" firstAttribute="leading" secondItem="QK7-3Y-Y6T" secondAttribute="leadingMargin" id="79g-wZ-3s4"/>
                             <constraint firstItem="Gxk-CL-Ex9" firstAttribute="leading" secondItem="QK7-3Y-Y6T" secondAttribute="leadingMargin" id="KbJ-BT-8Tk"/>
+                            <constraint firstItem="hVx-mj-2E8" firstAttribute="top" secondItem="1Ss-zN-uoo" secondAttribute="top" constant="10" id="MQz-yQ-Wqm"/>
+                            <constraint firstItem="Als-Yo-2F9" firstAttribute="leading" secondItem="1Ss-zN-uoo" secondAttribute="leading" id="PhU-Vs-hwR"/>
                             <constraint firstItem="oHx-4e-waD" firstAttribute="top" secondItem="vwI-Qq-MpB" secondAttribute="bottom" constant="70" id="QDp-xs-66k"/>
+                            <constraint firstItem="Als-Yo-2F9" firstAttribute="trailing" secondItem="1Ss-zN-uoo" secondAttribute="trailing" id="Re4-vg-ZBG"/>
                             <constraint firstItem="vwI-Qq-MpB" firstAttribute="leading" secondItem="QK7-3Y-Y6T" secondAttribute="leadingMargin" id="XQa-sL-gCs"/>
                             <constraint firstItem="vwI-Qq-MpB" firstAttribute="top" secondItem="1Ss-zN-uoo" secondAttribute="top" constant="22" id="fp1-pb-Chk"/>
                             <constraint firstItem="Gxk-CL-Ex9" firstAttribute="trailing" secondItem="QK7-3Y-Y6T" secondAttribute="trailingMargin" id="ftf-aU-xUE"/>
                             <constraint firstItem="oHx-4e-waD" firstAttribute="leading" secondItem="QK7-3Y-Y6T" secondAttribute="leadingMargin" id="hMK-iw-Ttr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vwI-Qq-MpB" secondAttribute="trailing" id="kDL-SX-GuS"/>
+                            <constraint firstAttribute="bottom" secondItem="Als-Yo-2F9" secondAttribute="bottom" id="lJF-CT-4L4"/>
+                            <constraint firstItem="Als-Yo-2F9" firstAttribute="top" secondItem="1Ss-zN-uoo" secondAttribute="top" id="pY8-Gz-Ty0"/>
                             <constraint firstItem="1Ss-zN-uoo" firstAttribute="bottom" secondItem="Gxk-CL-Ex9" secondAttribute="bottom" constant="59" id="vU3-wR-Uf4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Ss-zN-uoo"/>
                     </view>
+                    <navigationItem key="navigationItem" id="9Pz-hV-LGh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BHf-2m-b21" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="RfO-CE-MbO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1076" y="100"/>
         </scene>
