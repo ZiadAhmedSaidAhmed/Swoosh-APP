@@ -10,11 +10,14 @@ import UIKit
 
 class SkillVC: UIViewController {
 
+    @IBOutlet weak var categoryLbl: UILabel!
+    var player: Player!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        categoryLbl.text = "\(categoryLbl.text!) \(player.desiredLeague!)"
     }
     
-
+  
+    
 }

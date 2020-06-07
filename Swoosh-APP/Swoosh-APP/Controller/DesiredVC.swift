@@ -10,12 +10,20 @@ import UIKit
 
 class DesiredVC: UIViewController {
 
+    @IBOutlet weak var nextBtn: Custom1BorderButton!
+    var player: Player!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        player = Player()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let skillVC = segue.destination as? SkillVC {
+            skillVC.player = player
+        }
+    }
     @IBAction func onNextTapped(_ sender: Any) {
         performSegue(withIdentifier: "SkillVCSegue", sender: self)
     }
@@ -23,4 +31,18 @@ class DesiredVC: UIViewController {
         
     }
     
+    @IBAction func mensTapped(_ sender: Any) {
+        selectedCategory(desiredLeague: "mens")
+    }
+    @IBAction func womensTapped(_ sender: Any) {
+        selectedCategory(desiredLeague: "womens")
+    }
+    @IBAction func coedTapped(_ sender: Any) {
+        selectedCategory(desiredLeague: "coed")
+    }
+    func selectedCategory(desiredLeague: String) {
+        player.desiredLeague = desiredLeague
+        nextBtn.isEnabled = true
+    }
 }
+
